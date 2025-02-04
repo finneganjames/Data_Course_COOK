@@ -1,3 +1,0 @@
-Questions for Prof. Zahn: 
-1.15.2025
-What is the difference here between running a line of code in the console, versus the terminal? Editing the code in the console doesn't affect a file, but what does the terminal do that the console doesn't? 
