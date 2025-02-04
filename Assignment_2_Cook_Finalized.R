@@ -24,6 +24,6 @@ b_file <- list.files(path="C:/Users/finnc/Desktop/Data_Course_Cook/Data", patter
 
 for (file in b_file)
 { first_line <- read.csv(file, nrows = 1 )
-  print(paste("First line of file," file))
+  print(paste(file))
   print(first_line)
 }
