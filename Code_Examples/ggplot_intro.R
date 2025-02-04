@@ -5,6 +5,8 @@ library(tidyverse)
 
 # Load the data we will work with (built-in to ggplot)
 data("midwest", package = "ggplot2")
+?midwest
+
 
 # Intro to ggplot syntax
 
@@ -41,16 +43,20 @@ ggplot(midwest, aes(x=area, y=poptotal))  # area and poptotal are columns in 'mi
 ggplot(midwest, aes(x=area, y=poptotal)) + geom_point() # The "+" tells ggplot to add another layer to our base plot
 
 # Add another geom ... a trendline:
-ggplot(midwest, aes(x=area, y=poptotal)) + geom_point() + geom_smooth(method = "lm")
+ggplot(midwest, aes(x=area, y=poptotal)) + 
+  geom_point(color='salmon', size = 4, shape = 3) + geom_smooth(method = "lm", 
+                                                                color = "magenta", fill = 'chartreuse')
+
 # The line of best fit is in blue. Can you find out what other method options are available for geom_smooth? 
 
 # Store your plot as an object to add to...
 p <- ggplot(midwest, aes(x=area, y=poptotal)) + geom_point() + geom_smooth(method = "lm")
-
+p
 # Zoom in
 p + lims(x=c(0,0.1),y=c(0,1000000)) # what did this do?
 p + coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000)) # how is this different?
 
+?coord_cartesian
 # Store this new zoomed-in plot
 p2 <- p + coord_cartesian(xlim=c(0,0.1), ylim=c(0, 1000000))
 
@@ -91,6 +97,7 @@ p3
 
 # Don't like those colors?
 p3 + scale_color_brewer(palette = "Set1")
+p3 + scale_color_viridis_d(option = 'mako', end=.8) 
 
 # Want more color choices? You can check them out in the RColorBrewer package, or even make your own
 library(RColorBrewer)
