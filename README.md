@@ -1,4 +1,4 @@
 # Data_Course_COOK
-This README file contains information about my uploaded assignments. 
+Assignments, exams, notes, etc for BIOL3100. 
 
 
