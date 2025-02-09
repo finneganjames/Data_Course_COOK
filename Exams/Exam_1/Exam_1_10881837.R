@@ -2,7 +2,7 @@
 
 library(tidyverse)
 
-df <- read_csv("cleaned_covid_data.csv")
+df <- read_csv("../cleaned_covid_data.csv")
 
 A_states <- subset(df, grepl('a', ignore.case = TRUE, Province_State))
 
