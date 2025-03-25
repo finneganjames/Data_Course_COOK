@@ -68,6 +68,7 @@ dim(dat)
 head(dat)
 
 
+
 # You can access specific columns of a "data frame" by name using '$'
 dat$Species #factor vector 
 dat$Sepal.Length
@@ -98,7 +99,7 @@ class(dat$Species)
 
 # Check all classes (for each column in dat)
 str(dat)
-
+?str
 # "Classes" of vectors can be changed if needed (you'll need to, for sure, at some point!)
 
 # Let's try
@@ -164,21 +165,30 @@ hist(rnorm(10000,1,1))
 seq(2,150,2) # here's the code to get a list of the even numbers between 2 and 150
 
 
+df <- iris[seq(2,150,2), ]
 
 # 2.  Create a new object called iris_chr which is a copy of iris, except where every column is a character class
+
+iris_chr <- iris[,as.character()]
 
 
 
 # 3.  Create a new numeric vector object named "Sepal.Area" which is the product of Sepal.Length and Sepal.Width
 
 
+Sepal.Area <- df$Sepal.Length + df$Sepal.Width
+
 
 # 4.  Add Sepal.Area to the iris data frame as a new column
 
 
 
+
 # 5.  Create a new dataframe that is a subset of iris using only rows where Sepal.Area is greater than 20 
       # (name it big_area_iris)
+
+
+big_area_iris <-  
 
 
 
