@@ -1,0 +1,6 @@
+Idea for data analysis final project: 
+    Expressed interest in analyzing mummy microbiome data to see what kind of microbiota are present. Access level to that type of data 
+    may be limited due to medical records being protected, depending on the age of the mummy and the organization/organizations that own 
+    that data. 
+
+Fake data.csv file meant to replicate 
