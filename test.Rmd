@@ -1,0 +1,82 @@
+---
+title: "Untitled"
+output: html_document
+date: "`r Sys.Date()`"
+---
+
+```{r setup, include=FALSE}
+```
+
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE, warning = FALSE, message = FALSE)
+library(tidyverse)
+library(palmerpenguins)
+library(easystats)
+library(equatiomatic)
+library(pander)
+library(broom)
+library(kableExtra)
+install.packages("kableExtra")
+```
+
+## Hey look, it's penguins! 
+
+```{r}
+
+```
+
+Here's a look at the palmer penguins dataset. 
+
+```{r}
+penguins %>% glimpse
+```
+
+The steps of data science are 
+1. import 
+2. clean 
+3. visualize 
+4. model 
+5. report
+
+We don't need to do any real cleaning for this data set. But we can show some pretty pictures.
+
+```{r}
+p <- penguins %>% 
+  filter(!is.na(sex)) %>% 
+  ggplot(aes(x=species, y=body_mass_g, color = sex)) + 
+  geom_boxplot() + 
+  geom_jitter(color = 'black', alpha = .25, width = .2) + 
+  labs(x = "Species", y = "Body mass (g)", color = "Sex")
+#plotly::ggplotly(p)
+#javascript
+```
+
+Here we see that male and female penguins have distinct body mass distributions for each specis of penguin. Don't believe your eyes? 
+Here are some stats: 
+
+```{r}
+mod <- penguins %>% 
+  filter(!is.na(sex)) %>% 
+  glm(data= ., 
+      formula = body_mass_g ~sex * species)
+
+```
+
+```{r}
+mod %>%
+  tidy %>% 
+  kable %>% 
+  kable_classic(lightable_options = "hover")
+
+#kableExtra is really really good for table design (specifically html output)
+```
+
+
+The equation for our model is: 
+```{r}
+equatiomatic::extract_eq(mod)
+```
+
+#rmdformats
